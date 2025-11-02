@@ -3,19 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AquaSentry: Construction & Build Blueprint</title>
+    <title>Project Nexus: AI-Enhanced Data Core</title>
     <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Set default font to Inter and apply dark theme */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0f172a; /* Slate 900 */
-            color: #e2e8f0; /* Slate 200 */
+        /* Set default font to Inter */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Space+Mono:wght@400;700&display=swap');
+        
+        /* NEW: Layered Animated Gradient "Cosmic Nexus" Background */
+        @keyframes cosmic-flow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
         
-        /* Custom CSS for the Scroll Animation Effect */
+        /* NEW: Subtle, fast animation simulating data flow/matrix */
+        @keyframes matrix-flow {
+            from { background-position: 0 0; }
+            to { background-position: 100% 100%; }
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #e9d5ff; /* Lightest purple text */
+            
+            /* Layer 1: Deep Cosmic Gradient */
+            background: linear-gradient(-45deg, #09001b, #12032e, #27084a, #12032e, #09001b);
+            background-size: 400% 400%;
+            animation: cosmic-flow 30s ease infinite; /* Slower and deeper */
+            
+            position: relative;
+            z-index: 0;
+            overflow-x: hidden;
+        }
+
+        /* NEW: Holographic Title Flicker/Glow */
+        .holographic-title {
+            text-shadow: 
+                0 0 5px #f0f9ff,  /* Soft white base */
+                0 0 10px #f0f9ff,
+                0 0 20px #22d3ee, /* Neon Cyan glow */
+                0 0 30px #a78bfa; /* Purple bloom */
+            animation: flicker 4s infinite alternate;
+        }
+
+        @keyframes flicker {
+            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
+            20%, 24%, 55% { opacity: 0.8; }
+        }
+        
+        /* NEW: Hyper-Glassmorphism and Electric Cyan Hover Effect */
+        .glass-card {
+            background-color: rgba(6, 0, 18, 0.65); /* Very dark, highly blurred base */
+            backdrop-filter: blur(25px) saturate(2); /* Intense blur and saturation */
+            /* Layered shadow for maximum depth */
+            box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.8), 
+                        0 0 60px rgba(34, 211, 238, 0.1) inset; /* Subtle cyan inner glow */
+            border: 1px solid rgba(159, 110, 240, 0.4); 
+            transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+            overflow: hidden; 
+        }
+
+        .glass-card:hover {
+            transform: scale(1.03) translateY(-8px); 
+            /* Electric Cyan/Blue Glow on hover */
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 1), 
+                        0 0 90px rgba(34, 211, 238, 0.7); /* Strong cyan outer glow */
+            border: 2px solid #22d3ee; /* Strong cyan border flash */
+        }
+
+        /* Light-streak (Shimmer) effect on hover - faster, more focused */
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -180%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0) 100%);
+            transform: skewX(-25deg);
+            transition: left 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
+            z-index: 5;
+        }
+
+        .glass-card:hover::before {
+            left: 180%;
+        }
+
+        /* Scroll Animation (Unchanged) */
         .scroll-animate {
             opacity: 0;
             transform: translateY(20px);
@@ -28,42 +104,83 @@
             transform: translateY(0);
         }
 
-        /* Styling for the Timeline connectors */
+        /* Timeline Dots - Pulsing Cyber Glow */
+        @keyframes pulse-cyber {
+            0%, 100% {
+                box-shadow: 0 0 8px #a78bfa, 0 0 15px #a78bfa; 
+                background-color: #c084fc; 
+            }
+            50% {
+                box-shadow: 0 0 12px #22d3ee, 0 0 30px #22d3ee; /* Cyan flash */
+                background-color: #67e8f9; 
+            }
+        }
+
         .timeline-item::before {
             content: '';
             position: absolute;
             left: 0;
-            top: 0.5rem;
-            width: 1rem;
-            height: 1rem;
+            top: 0.5rem; 
+            width: 1.2rem; 
+            height: 1.2rem;
             border-radius: 50%;
-            background-color: #4f46e5; /* Indigo 600 */
-            border: 3px solid #1e293b; /* Slate 800 */
+            border: 4px solid #09001b; 
             z-index: 10;
+            animation: pulse-cyber 3s infinite ease-in-out; 
         }
 
         .timeline-item:not(:last-child)::after {
             content: '';
             position: absolute;
-            left: 0.85rem;
-            top: 1.5rem;
+            left: 1.1rem; 
+            top: 1.7rem;
             bottom: -0.5rem;
-            width: 3px;
-            background-color: #374151; /* Gray 700 */
+            width: 3px; 
+            background-color: #8b5cf6; /* Deeper purple connector */
             z-index: 5;
+        }
+
+        /* AI Status Console Styling */
+        .ai-console {
+            position: fixed;
+            bottom: 1rem;
+            right: 1rem;
+            font-family: 'Space Mono', monospace;
+            color: #67e8f9; /* Electric Cyan */
+            background-color: rgba(6, 0, 18, 0.8);
+            border: 1px solid #67e8f9;
+            box-shadow: 0 0 10px rgba(103, 232, 249, 0.6);
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            font-size: 0.75rem;
+            line-height: 1;
+            z-index: 100;
+        }
+
+        /* Pulsing dot for status */
+        @keyframes status-pulse {
+            0% { box-shadow: 0 0 0 0 rgba(103, 232, 249, 0.7); }
+            70% { box-shadow: 0 0 0 8px rgba(103, 232, 249, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(103, 232, 249, 0); }
+        }
+
+        .status-dot {
+            animation: status-pulse 2s infinite;
         }
     </style>
 </head>
 <body class="antialiased">
 
     <!-- Header / Hero Section -->
-    <div class="bg-slate-800 py-16 px-6 sm:px-10 lg:px-16 shadow-2xl shadow-indigo-900/50">
-        <header class="max-w-7xl mx-auto">
-            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-indigo-400 mb-2">
-                AquaSentry: The Build
+    <div class="glass-card py-20 px-6 sm:px-10 lg:px-16 text-center mt-8 sm:mt-12 max-w-7xl mx-auto rounded-3xl">
+        <header>
+            <!-- Holographic title -->
+            <h1 class="holographic-title text-4xl sm:text-5xl lg:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-cyan-400 mb-4">
+                PROJECT NEXUS: Data Core
             </h1>
-            <p class="text-xl sm:text-2xl text-slate-400 font-light max-w-4xl">
-                A detailed look at the physical components, robust mechanical design, and prototype timeline.
+            <!-- Subtitle uses the cyan color -->
+            <p class="text-lg sm:text-xl text-cyan-300 opacity-90 font-light max-w-3xl mx-auto">
+                AI-Enhanced Analysis of Physical Components, Engineering Protocols, and Deployment Strategy.
             </p>
         </header>
     </div>
@@ -71,58 +188,59 @@
     <main class="max-w-7xl mx-auto p-4 sm:p-8 lg:p-12">
 
         <!-- Section 1: Detailed Hardware Design (BOM) -->
-        <section id="hardware" class="mb-20">
-            <h2 class="text-3xl sm:text-4xl font-bold text-indigo-400 mb-10 border-b-4 border-indigo-600 pb-3 scroll-animate" style="--delay: 0s;">
-                1. Materials & Components (Bill of Materials)
+        <section id="hardware" class="mb-24">
+            <!-- Section Header - uses cyan accent -->
+            <h2 class="text-3xl sm:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-cyan-400 mb-12 border-b border-cyan-500/40 pb-4 scroll-animate" style="--delay: 0s;">
+                1. Sensor Array and Processing Sub-Systems
             </h2>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
 
                 <!-- Card 1: Sensors -->
-                <div class="bg-slate-800 p-6 rounded-xl shadow-xl border-t-4 border-indigo-500 scroll-animate" style="--delay: 0.1s;">
-                    <img src="https://placehold.co/400x200/4f46e5/FFFFFF?text=PROBE+SENSORS" alt="Placeholder image of pH, TDS, and Turbidity probes" class="rounded-lg mb-4 w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/400x200/4f46e5/FFFFFF?text=PROBE+SENSORS';">
-                    <h3 class="text-xl font-bold text-indigo-300 mb-2">Sensing Probes</h3>
-                    <p class="text-sm text-slate-400 mb-2">
-                        **Core Measurement:** pH probe, TDS (conductivity) sensor, Turbidity sensor, and DS18B20 temperature sensor.
+                <div class="glass-card p-6 rounded-3xl scroll-animate" style="--delay: 0.1s;">
+                    <img src="https://placehold.co/400x200/a855f7/FFFFFF?text=SENSOR+MODULES" alt="Placeholder image of pH, TDS, and Turbidity probes" class="rounded-xl mb-4 w-full h-auto opacity-90" onerror="this.onerror=null;this.src='https://placehold.co/400x200/a855f7/FFFFFF?text=SENSOR+MODULES';">
+                    <h3 class="text-xl font-bold text-cyan-300 mb-2">Aquatic Probes</h3>
+                    <p class="text-sm text-purple-200/90 mb-2">
+                        <span class="font-semibold text-cyan-200">Data Acquisition:</span> pH, TDS (conductivity), Turbidity, and High-Precision Temperature (DS18B20). Calibrated for extreme environmental variance.
                     </p>
-                    <p class="text-xs italic text-slate-500">
-                        Placed at the sensing port near the tap outlet for real-time flow analysis.
+                    <p class="text-xs italic text-purple-400/70">
+                        Input Nodes for real-time volumetric analysis.
                     </p>
                 </div>
 
                 <!-- Card 2: Controller & UI -->
-                <div class="bg-slate-800 p-6 rounded-xl shadow-xl border-t-4 border-indigo-500 scroll-animate" style="--delay: 0.2s;">
-                    <img src="https://placehold.co/400x200/6366f1/FFFFFF?text=ARDUINO+%2B+OLED" alt="Placeholder image of Arduino Nano and OLED display" class="rounded-lg mb-4 w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/400x200/6366f1/FFFFFF?text=ARDUINO+%2B+OLED';">
-                    <h3 class="text-xl font-bold text-indigo-300 mb-2">Controller & Display</h3>
-                    <p class="text-sm text-slate-400 mb-2">
-                        **Processing & Interface:** Arduino Nano (or ESP32), 1.3″ OLED (128×64) for verdict, 4 tactile buttons (Prev, Next, Live, Prev-Day).
+                <div class="glass-card p-6 rounded-3xl scroll-animate" style="--delay: 0.2s;">
+                    <img src="https://placehold.co/400x200/c084fc/FFFFFF?text=ESP32+%2B+INTERFACE" alt="Placeholder image of Arduino Nano and OLED display" class="rounded-xl mb-4 w-full h-auto opacity-90" onerror="this.onerror=null;this.src='https://placehold.co/400x200/c084fc/FFFFFF?text=ESP32+%2B+INTERFACE';">
+                    <h3 class="text-xl font-bold text-cyan-300 mb-2">Nexus Controller</h3>
+                    <p class="text-sm text-purple-200/90 mb-2">
+                        <span class="font-semibold text-cyan-200">Processing Core:</span> ESP32-based logic unit. Features a 1.3″ OLED display for local verdict and tactical 4-button array for data navigation.
                     </p>
-                    <p class="text-xs italic text-slate-500">
-                        Reads data, executes verdict logic, and drives the local UI.
+                    <p class="text-xs italic text-purple-400/70">
+                        Executes real-time algorithms and drives the physical interface.
                     </p>
                 </div>
 
                 <!-- Card 3: Power System -->
-                <div class="bg-slate-800 p-6 rounded-xl shadow-xl border-t-4 border-indigo-500 scroll-animate" style="--delay: 0.3s;">
-                    <img src="https://placehold.co/400x200/818cf8/FFFFFF?text=POWER+SYSTEM" alt="Placeholder image of 18650 battery and solar panel" class="rounded-lg mb-4 w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/400x200/818cf8/FFFFFF?text=POWER+SYSTEM';">
-                    <h3 class="text-xl font-bold text-indigo-300 mb-2">Autonomous Power</h3>
-                    <p class="text-sm text-slate-400 mb-2">
-                        **Sustainability:** 18650 Li-ion cell, TP4056 charger, MT3608 boost converter (3.7 → 5V). Optional mini 5V/1-3W solar panel.
+                <div class="glass-card p-6 rounded-3xl scroll-animate" style="--delay: 0.3s;">
+                    <img src="https://placehold.co/400x200/d8b4fe/FFFFFF?text=POWER+REPLICATOR" alt="Placeholder image of 18650 battery and solar panel" class="rounded-xl mb-4 w-full h-auto opacity-90" onerror="this.onerror=null;this.src='https://placehold.co/400x200/d8b4fe/FFFFFF?text=POWER+REPLICATOR';">
+                    <h3 class="text-xl font-bold text-cyan-300 mb-2">Autonomous Energy</h3>
+                    <p class="text-sm text-purple-200/90 mb-2">
+                        <span class="font-semibold text-cyan-200">Sustainability:</span> 18650 Li-ion storage with TP4056 charge control. MT3608 boost regulator for stable 5V delivery. Optional photovoltaic recharge node.
                     </p>
-                    <p class="text-xs italic text-slate-500">
-                        Designed for low-power operation and charging in remote areas.
+                    <p class="text-xs italic text-purple-400/70">
+                        Minimum 72-hour operational reserve capacity.
                     </p>
                 </div>
 
                 <!-- Card 4: Storage & Casing -->
-                <div class="bg-slate-800 p-6 rounded-xl shadow-xl border-t-4 border-indigo-500 scroll-animate" style="--delay: 0.4s;">
-                    <img src="https://placehold.co/400x200/a5b4fc/FFFFFF?text=ENCLOSURE+%26+SD" alt="Placeholder image of a sealed plastic box and microSD card" class="rounded-lg mb-4 w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/400x200/a5b4fc/FFFFFF?text=ENCLOSURE+%26+SD';">
-                    <h3 class="text-xl font-bold text-indigo-300 mb-2">Storage & Enclosure</h3>
-                    <p class="text-sm text-slate-400 mb-2">
-                        **Protection & Logging:** microSD module for CSV logs, cheap plastic box with silicone sealing, rubber grommets for cable management.
+                <div class="glass-card p-6 rounded-3xl scroll-animate" style="--delay: 0.4s;">
+                    <img src="https://placehold.co/400x200/e9d5ff/FFFFFF?text=STORAGE+ENCLOSURE" alt="Placeholder image of a sealed plastic box and microSD card" class="rounded-xl mb-4 w-full h-auto opacity-90" onerror="this.onerror=null;this.src='https://placehold.co/400x200/e9d5ff/FFFFFF?text=STORAGE+ENCLOSURE';">
+                    <h3 class="text-xl font-bold text-cyan-300 mb-2">Data Logging & Shield</h3>
+                    <p class="text-sm text-purple-200/90 mb-2">
+                        <span class="font-semibold text-cyan-200">Protection & Logs:</span> IP-rated poly-casing with silicone seals. Integrated microSD for secure, non-volatile CSV log storage.
                     </p>
-                    <p class="text-xs italic text-slate-500">
-                        Focus on robustness, low cost, and ease of maintenance access.
+                    <p class="text-xs italic text-purple-400/70">
+                        Environmental integrity maintained for sensor cluster and electronics.
                     </p>
                 </div>
 
@@ -130,114 +248,132 @@
         </section>
         
         <!-- Section 2: Mechanical Placement & Installation -->
-        <section id="placement" class="mb-20">
-            <h2 class="text-3xl sm:text-4xl font-bold text-indigo-400 mb-10 border-b-4 border-indigo-600 pb-3 scroll-animate" style="--delay: 0s;">
-                2. Mechanical Placement & Installation
+        <section id="placement" class="mb-24">
+            <!-- Section Header - uses cyan accent -->
+            <h2 class="text-3xl sm:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-cyan-400 mb-12 border-b border-cyan-500/40 pb-4 scroll-animate" style="--delay: 0s;">
+                2. Mechanical Protocol & Physical Integration
             </h2>
 
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                 
                 <div class="scroll-animate" style="--delay: 0.1s;">
-                    <h3 class="text-2xl font-semibold text-slate-300 mb-4">
-                        Fluid Dynamics & Sensor Housing
+                    <h3 class="text-2xl font-semibold text-cyan-100 mb-4">
+                        Fluid Dynamic Interface
                     </h3>
-                    <p class="text-lg text-slate-400 mb-6">
-                        The device must be mounted using a **T-joint or clamp** to the main water pipe, *never* by drilling the tap itself. The key is the **PVC sensor sleeve**: this short standoff pipe ensures the probe is constantly immersed and sits directly in the **flowing stream** when the water is running.
+                    <p class="text-lg text-purple-200/90 mb-6">
+                        Installation requires zero permanent modification to existing infrastructure. A secure <strong class="text-cyan-200 font-semibold">T-joint adaptor</strong> ensures the device taps directly into the flow. The <strong class="text-cyan-200 font-semibold">PVC flow tube</strong> is essential for maintaining constant probe immersion and laminar flow during sampling windows.
                     </p>
                     
-                    <ul class="space-y-4 text-base">
-                        <li class="flex items-center"><svg class="w-5 h-5 text-indigo-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 0a9 9 0 01-9-9m9 9a9 9 0 00-9 9"></path></svg>
-                            **Box Location:** Elevated beside the tap or handpump, with the screen facing the user for immediate verdict visibility.
+                    <ul class="space-y-4 text-base text-purple-200/90">
+                        <!-- Cyan icons and bold text -->
+                        <li class="flex items-center"><svg class="w-5 h-5 text-cyan-400 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 0a9 9 0 01-9-9m9 9a9 9 0 00-9 9"></path></svg>
+                            <span class="font-semibold text-cyan-100 mr-2">Deployment Vector:</span> System is mounted laterally to the pump structure. Display orientation must be optimized for user accessibility.
                         </li>
-                        <li class="flex items-center"><svg class="w-5 h-5 text-indigo-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v-1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
-                            **Solar Placement:** On the tank roof or a nearby dedicated pole, ensuring clear, unobstructed sunlight exposure.
+                        <li class="flex items-center"><svg class="w-5 h-5 text-cyan-400 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v-1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                            <span class="font-semibold text-cyan-100 mr-2">Energy Harvester:</span> Solar panel alignment requires maximum daily irradiance, typically perpendicular to the structure's highest point.
                         </li>
-                        <li class="flex items-center"><svg class="w-5 h-5 text-indigo-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37a1.724 1.724 0 002.572-1.065z"></path></svg>
-                            **Maintenance Access:** Lid is easily removable. The probe must be **removable** for monthly calibration and cleaning.
+                        <li class="flex items-center"><svg class="w-5 h-5 text-cyan-400 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37a1.724 1.724 0 002.572-1.065z"></path></svg>
+                            <span class="font-semibold text-cyan-100 mr-2">Maintenance Protocol:</span> The probe module is detachable for scheduled calibration/cleaning cycle, ensuring long-term data fidelity.
                         </li>
                     </ul>
                 </div>
                 
-                <div class="rounded-xl overflow-hidden shadow-2xl scroll-animate" style="--delay: 0.2s;">
+                <!-- Image frame with the glass card style -->
+                <div class="glass-card rounded-3xl overflow-hidden p-3 scroll-animate" style="--delay: 0.2s;">
                     <img src="https://raw.githubusercontent.com/blastoise-creater/Construction/refs/heads/main/IMG-20251101-WA0006.jpg" 
-     alt="Conceptual diagram of AquaSentry device mounted next to a handpump" 
-     class="w-full h-auto object-cover" 
-     onerror="this.onerror=null;this.src='https://placehold.co/600x400/312e81/FFFFFF?text=INSTALLATION+DIAGRAM';"
->
-
+                         alt="Conceptual diagram of AquaSentry device mounted next to a handpump" 
+                         class="w-full h-auto object-cover rounded-2xl" 
+                         onerror="this.onerror=null;this.src='https://placehold.co/600x400/581c87/FFFFFF?text=INSTALLATION+DIAGRAM';">
                 </div>
             </div>
         </section>
 
         <!-- Section 3: Prototype Build Plan (Timeline) -->
         <section id="build_plan" class="mb-20">
-            <h2 class="text-3xl sm:text-4xl font-bold text-indigo-400 mb-10 border-b-4 border-indigo-600 pb-3 scroll-animate" style="--delay: 0s;">
-                3. Prototype Build Plan (Estimated 8–12 Weeks)
+            <!-- Section Header - uses cyan accent -->
+            <h2 class="text-3xl sm:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-cyan-400 mb-10 border-b border-cyan-500/40 pb-4 scroll-animate" style="--delay: 0s;">
+                3. Deployment Timeline (Project Phases)
             </h2>
 
             <div class="relative pl-6 md:pl-12">
                 
                 <!-- Timeline Item 1 -->
                 <div class="timeline-item relative mb-8 pl-10 scroll-animate" style="--delay: 0.1s;">
-                    <div class="bg-slate-800 p-5 rounded-lg shadow-lg border-l-4 border-indigo-400">
-                        <h4 class="text-xl font-bold text-indigo-300">MVP Parts Buy & Bench Test</h4>
-                        <p class="text-sm text-slate-400 mt-1">
-                            **Duration:** 1–2 weeks. **Goal:** Verify all sensors (pH, TDS, Turbidity) function accurately against known lab water samples and standards.
+                    <div class="glass-card p-5 rounded-2xl border-l-4 border-cyan-500 transition-colors duration-300 hover:border-l-cyan-300">
+                        <h4 class="text-xl font-bold text-cyan-300">Phase I: Sensor Verification (T-0 to T+2 Weeks)</h4>
+                        <p class="text-sm text-purple-200/90 mt-1">
+                            <span class="font-semibold text-cyan-200">Objective:</span> Component procurement and isolated **benchmarking** against laboratory standards. Establish baseline accuracy for all sensors.
                         </p>
                     </div>
                 </div>
 
                 <!-- Timeline Item 2 -->
                 <div class="timeline-item relative mb-8 pl-10 scroll-animate" style="--delay: 0.2s;">
-                    <div class="bg-slate-800 p-5 rounded-lg shadow-lg border-l-4 border-indigo-400">
-                        <h4 class="text-xl font-bold text-indigo-300">Prototype PCB/Perfboard Mount + UI</h4>
-                        <p class="text-sm text-slate-400 mt-1">
-                            **Duration:** 1–2 weeks. **Goal:** Integrate Controller, OLED, Buttons, and SD logging module. Establish reliable hourly data logging logic.
+                    <div class="glass-card p-5 rounded-2xl border-l-4 border-cyan-500 transition-colors duration-300 hover:border-l-cyan-300">
+                        <h4 class="text-xl font-bold text-cyan-300">Phase II: Logic Integration (T+2 to T+4 Weeks)</h4>
+                        <p class="text-sm text-purple-200/90 mt-1">
+                            <span class="font-semibold text-cyan-200">Objective:</span> Finalize **PCB architecture**. Implement core decision-making algorithms and test the data logging module stability under simulated load.
                         </p>
                     </div>
                 </div>
 
                 <!-- Timeline Item 3 -->
                 <div class="timeline-item relative mb-8 pl-10 scroll-animate" style="--delay: 0.3s;">
-                    <div class="bg-slate-800 p-5 rounded-lg shadow-lg border-l-4 border-indigo-400">
-                        <h4 class="text-xl font-bold text-indigo-300">Casing & Field Mock</h4>
-                        <p class="text-sm text-slate-400 mt-1">
-                            **Duration:** 1 week. **Goal:** Build the final water-safe enclosure. Prepare the PVC sensor sleeve and cable gland seals for practical field use.
+                    <div class="glass-card p-5 rounded-2xl border-l-4 border-cyan-500 transition-colors duration-300 hover:border-l-cyan-300">
+                        <h4 class="text-xl font-bold text-cyan-300">Phase III: Physical Casing & Mock-Up (T+4 to T+5 Weeks)</h4>
+                        <p class="text-sm text-purple-200/90 mt-1">
+                            <span class="font-semibold text-cyan-200">Objective:</span> Complete the final ruggedized enclosure. Ensure all cable entry points are sealed and the probe sleeve assembly is secure and user-friendly.
                         </p>
                     </div>
                 </div>
                 
                 <!-- Timeline Item 4 -->
                 <div class="timeline-item relative mb-8 pl-10 scroll-animate" style="--delay: 0.4s;">
-                    <div class="bg-slate-800 p-5 rounded-lg shadow-lg border-l-4 border-indigo-400">
-                        <h4 class="text-xl font-bold text-indigo-300">Field Pilot Deployment</h4>
-                        <p class="text-sm text-slate-400 mt-1">
-                            **Duration:** 4–6 weeks. **Goal:** Install at 2 representative sites. Collect data, monitor power consumption, and conduct parallel sampling against certified lab tests.
+                    <div class="glass-card p-5 rounded-2xl border-l-4 border-cyan-500 transition-colors duration-300 hover:border-l-cyan-300">
+                        <h4 class="text-xl font-bold text-cyan-300">Phase IV: Field Calibration (T+5 to T+11 Weeks)</h4>
+                        <p class="text-sm text-purple-200/90 mt-1">
+                            <span class="font-semibold text-cyan-200">Objective:</span> Deploy to two test sites. Collect parallel data against certified **external lab analysis**. Fine-tune algorithm sensitivity for local water dynamics.
                         </p>
                     </div>
                 </div>
 
                 <!-- Timeline Item 5 -->
                 <div class="timeline-item relative mb-8 pl-10 scroll-animate" style="--delay: 0.5s;">
-                    <div class="bg-slate-800 p-5 rounded-lg shadow-lg border-l-4 border-indigo-400">
-                        <h4 class="text-xl font-bold text-indigo-300">Refinement & Scale Prep</h4>
-                        <p class="text-sm text-slate-400 mt-1">
-                            **Duration:** 4–8 weeks. **Goal:** Finalize verdict thresholds, optimize power modes, create local assembly instructions, and establish the maintenance SOP.
+                    <div class="glass-card p-5 rounded-2xl border-l-4 border-cyan-500 transition-colors duration-300 hover:border-l-cyan-300">
+                        <h4 class="text-xl font-bold text-cyan-300">Phase V: SOP Finalization (T+11 to T+13 Weeks)</h4>
+                        <p class="text-sm text-purple-200/90 mt-1">
+                            <span class="font-semibold text-cyan-200">Objective:</span> Document final assembly protocols (SOPs), user training materials, and maintenance guides. **Ready for wider scaling**.
                         </p>
                     </div>
                 </div>
 
-                <div class="text-center pt-8 text-indigo-400 font-bold scroll-animate" style="--delay: 0.6s;">
-                    GOAL: Ready for meaningful pilot deployment within 8–12 weeks.
+                <!-- GOAL text -->
+                <div class="text-center pt-8 text-cyan-300 font-bold text-lg tracking-widest scroll-animate" style="--delay: 0.6s;">
+                    DEPLOYMENT TARGET: T+12 WEEKS. STATUS: ALGORITHM OPTIMIZATION COMPLETE.
                 </div>
             </div>
         </section>
 
     </main>
 
-    <footer class="bg-slate-900 text-slate-500 py-6 mt-12 border-t border-slate-700">
+    <!-- AI STATUS CONSOLE (Fixed Position) -->
+    <div class="ai-console hidden sm:block">
+        <div class="flex items-center space-x-2">
+            <span class="status-dot inline-block w-3 h-3 bg-cyan-400 rounded-full"></span>
+            <span class="text-cyan-400">AI STATUS:</span>
+            <span class="text-white/90">Nexus Core Online</span>
+        </div>
+        <div class="text-white/60 mt-1">
+            <p>STREAM: Active (30s latency)</p>
+            <p>PROTOCOL: Verified</p>
+        </div>
+    </div>
+
+
+    <!-- Subtle glass footer -->
+    <footer class="text-purple-300/60 py-8 mt-24 border-t border-cyan-500/40">
         <div class="max-w-7xl mx-auto px-4 text-center text-sm">
-            AquaSentry Construction Blueprint - Ready for Prototyping
+            Project Nexus Data Core - AI-Enhanced Blueprint
         </div>
     </footer>
 
@@ -262,7 +398,13 @@
             elements.forEach(el => {
                 observer.observe(el);
             });
+            
+            // Show AI Console on larger screens
+            if (window.innerWidth >= 640) {
+                document.querySelector('.ai-console').classList.remove('hidden');
+            }
         });
     </script>
 </body>
 </html>
+
