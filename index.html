@@ -8,11 +8,16 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Space+Mono:wght{400;700}&display=swap');
-        
+
         @keyframes cosmic-flow {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
+        }
+
+        @keyframes matrix-flow {
+            from { background-position: 0 0; }
+            to { background-position: 100% 100%; }
         }
 
         body {
@@ -22,6 +27,7 @@
             background-size: 400% 400%;
             animation: cosmic-flow 30s ease infinite;
             position: relative;
+            z-index: 0;
             overflow-x: hidden;
         }
 
@@ -31,8 +37,8 @@
         }
 
         @keyframes flicker {
-            0%,19%,21%,23%,25%,54%,56%,100% { opacity: 1; }
-            20%,24%,55% { opacity: 0.8; }
+            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
+            20%, 24%, 55% { opacity: 0.8; }
         }
 
         .glass-card {
@@ -46,7 +52,7 @@
         }
 
         .glass-card:hover {
-            transform: scale(1.03) translateY(-8px);
+            transform: scale(1.03) translateY(-8px); 
             box-shadow: 0 20px 60px rgba(0, 0, 0, 1), 0 0 90px rgba(34, 211, 238, 0.7);
             border: 2px solid #22d3ee;
         }
@@ -58,13 +64,15 @@
             left: -180%;
             width: 50%;
             height: 100%;
-            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
+            background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0) 100%);
             transform: skewX(-25deg);
             transition: left 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
             z-index: 5;
         }
 
-        .glass-card:hover::before { left: 180%; }
+        .glass-card:hover::before {
+            left: 180%;
+        }
 
         .scroll-animate {
             opacity: 0;
@@ -100,7 +108,9 @@
             100% { box-shadow: 0 0 0 0 rgba(103, 232, 249, 0); }
         }
 
-        .status-dot { animation: status-pulse 2s infinite; }
+        .status-dot {
+            animation: status-pulse 2s infinite;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -112,62 +122,123 @@
                 AquaSentry: Smart Water Sentinel
             </h1>
             <p class="text-lg sm:text-xl text-cyan-300 opacity-90 font-light max-w-3xl mx-auto">
-                Integrated Solar-Powered Water Quality Monitoring with <strong>MicroSD Logging</strong> and <strong>Manual Trigger Button</strong>.
+                Integrated Solar-Powered Water Quality Monitoring and **Wi-Fi Cloud Reporting** System.
             </p>
         </header>
     </div>
 
     <main class="max-w-7xl mx-auto p-4 sm:p-8 lg:p-12">
-        <!-- Section: Hardware -->
+
+        <!-- Section 1: Hardware -->
         <section id="hardware" class="mb-24">
             <h2 class="text-3xl sm:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-cyan-400 mb-12 border-b border-cyan-500/40 pb-4 scroll-animate" style="--delay: 0s;">
-                1. Sensor Array & Local Processing
+                1. Sensor Array and Processing Sub-Systems
             </h2>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-
-                <div class="glass-card p-6 rounded-3xl scroll-animate" style="--delay:0.1s;">
-                    <h3 class="text-xl font-bold text-cyan-300 mb-2">Sensor Array (TDS, pH, Turbidity, Temp)</h3>
+                <!-- Aquatic Probes -->
+                <div class="glass-card p-6 rounded-3xl scroll-animate" style="--delay: 0.1s;">
+                    <img src="https://placehold.co/400x200/a855f7/FFFFFF?text=AQUATIC+PROBES" alt="Placeholder image" class="rounded-xl mb-4 w-full h-auto opacity-90">
+                    <h3 class="text-xl font-bold text-cyan-300 mb-2">Aquatic Probes & Calibration Array</h3>
                     <p class="text-sm text-purple-200/90 mb-2">
-                        Core sensors measure water quality at scheduled intervals or manually via button trigger.
+                        <span class="font-semibold text-cyan-200">Data Acquisition:</span> **TDS (0–1000 ppm)**, **pH (0–14, $\pm 0.1$)**, **Turbidity (0–1000 NTU)**, **DS18B20 Temperature** sensor.
                     </p>
-                    <p class="text-xs italic text-purple-400/70">
-                        Display activates only during measurement to save battery.
-                    </p>
+                    <p class="text-xs italic text-purple-400/70">Multi-parameter input for high-fidelity water analysis.</p>
                 </div>
 
-                <div class="glass-card p-6 rounded-3xl scroll-animate" style="--delay:0.2s;">
-                    <h3 class="text-xl font-bold text-cyan-300 mb-2">ESP32 Control Unit</h3>
+                <!-- Control Unit -->
+                <div class="glass-card p-6 rounded-3xl scroll-animate" style="--delay: 0.2s;">
+                    <img src="https://placehold.co/400x200/c084fc/FFFFFF?text=ESP32+CONTROL" alt="ESP32 control" class="rounded-xl mb-4 w-full h-auto opacity-90">
+                    <h3 class="text-xl font-bold text-cyan-300 mb-2">Control Unit & Local Display</h3>
                     <p class="text-sm text-purple-200/90 mb-2">
-                        Manages sensor readings, applies calibration & temperature compensation, and logs data to MicroSD.
+                        <span class="font-semibold text-cyan-200">Processing Core:</span> **ESP32 Microcontroller**. Features a **1.3″ OLED Display** for color-coded status.
                     </p>
-                    <p class="text-xs italic text-purple-400/70">
-                        Supports deep sleep and manual button wake-up to conserve energy.
-                    </p>
+                    <p class="text-xs italic text-purple-400/70">Central logic processing and user feedback interface.</p>
                 </div>
 
-                <div class="glass-card p-6 rounded-3xl scroll-animate" style="--delay:0.3s;">
-                    <h3 class="text-xl font-bold text-cyan-300 mb-2">Solar & Battery System</h3>
+                <!-- Wi-Fi Connectivity -->
+                <div class="glass-card p-6 rounded-3xl scroll-animate" style="--delay: 0.3s;">
+                    <img src="https://placehold.co/400x200/d8b4fe/FFFFFF?text=WIFI+MODULE" alt="Wi-Fi module" class="rounded-xl mb-4 w-full h-auto opacity-90">
+                    <h3 class="text-xl font-bold text-cyan-300 mb-2">Dedicated Wi-Fi Connectivity</h3>
                     <p class="text-sm text-purple-200/90 mb-2">
-                        5V, 2W solar panel charges 3.7V 2500mAh Li-ion battery via TP4056 & LM2596. Ensures autonomous operation.
+                        <span class="font-semibold text-cyan-200">Connectivity:</span> Utilizes **ESP32 Wi-Fi** for data transmission to the cloud server.
                     </p>
-                    <p class="text-xs italic text-purple-400/70">
-                        Deep sleep maximizes battery endurance.
-                    </p>
+                    <p class="text-xs italic text-purple-400/70">Ensures uninterrupted cloud logging.</p>
                 </div>
 
-                <div class="glass-card p-6 rounded-3xl scroll-animate" style="--delay:0.4s;">
-                    <h3 class="text-xl font-bold text-cyan-300 mb-2">MicroSD & Display Unit</h3>
+                <!-- Power System -->
+                <div class="glass-card p-6 rounded-3xl scroll-animate" style="--delay: 0.4s;">
+                    <img src="https://placehold.co/400x200/e9d5ff/FFFFFF?text=SOLAR+POWER+SD" alt="Solar and battery" class="rounded-xl mb-4 w-full h-auto opacity-90">
+                    <h3 class="text-xl font-bold text-cyan-300 mb-2">Autonomous Power & Data Log</h3>
                     <p class="text-sm text-purple-200/90 mb-2">
-                        Display shows real-time readings; MicroSD logs all historical data.
+                        <span class="font-semibold text-cyan-200">Sustainability:</span> **5V, 2W Solar Panel** and **3.7V, 2500mAh Li-ion Battery**. Managed by **TP4056** and **LM2596**. Local backup via **MicroSD Card**.
                     </p>
-                    <p class="text-xs italic text-purple-400/70">
-                        Local storage ensures non-volatile backup without any network.
-                    </p>
+                    <p class="text-xs italic text-purple-400/70">Sustainable field operation with non-volatile local storage.</p>
                 </div>
-
             </div>
         </section>
+
+        <!-- Mechanical & Installation -->
+        <section id="placement" class="mb-24">
+            <h2 class="text-3xl sm:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-cyan-400 mb-12 border-b border-cyan-500/40 pb-4 scroll-animate" style="--delay: 0s;">
+                2. Mechanical Protocol & Physical Integration
+            </h2>
+
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="scroll-animate" style="--delay: 0.1s;">
+                    <h3 class="text-2xl font-semibold text-cyan-100 mb-4">Fluid Dynamic Interface</h3>
+                    <p class="text-lg text-purple-200/90 mb-6">
+                        Sensor node attached directly <strong class="text-cyan-200 font-semibold">below the tap or handpump</strong>. Control box sealed with **IP-rated poly-casing**.
+                    </p>
+                    <ul class="space-y-4 text-base text-purple-200/90">
+                        <li class="flex items-center"><span class="font-semibold text-cyan-100 mr-2">Deployment Vector:</span> Control box mounted laterally to the pump structure.</li>
+                        <li class="flex items-center"><span class="font-semibold text-cyan-100 mr-2">Energy Harvester:</span> **5V Solar panel** alignment at **45° angle**.</li>
+                        <li class="flex items-center"><span class="font-semibold text-cyan-100 mr-2">Maintenance Protocol:</span> Waterproof **probe module detachable** for cleaning/calibration.</li>
+                    </ul>
+                </div>
+                <div class="glass-card rounded-3xl overflow-hidden p-3 scroll-animate" style="--delay: 0.2s;">
+                    <img src="https://raw.githubusercontent.com/blastoise-creater/Construction/refs/heads/main/IMG-20251101-WA0006.jpg" alt="AquaSentry installation" class="w-full h-auto object-cover rounded-2xl">
+                </div>
+            </div>
+        </section>
+
+        <!-- Components BOM -->
+        <section id="components_bom" class="mb-24">
+            <h2 class="text-3xl sm:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-cyan-400 mb-12 border-b border-cyan-500/40 pb-4 scroll-animate" style="--delay: 0s;">
+                3. Component Breakdown & Role Analysis (BOM)
+            </h2>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                <!-- ESP32 -->
+                <div class="glass-card p-5 rounded-2xl scroll-animate" style="--delay: 0.1s;">
+                    <h4 class="text-xl font-bold text-cyan-300 mb-2">ESP32 Microcontroller</h4>
+                    <p class="text-sm font-mono text-purple-400/80 mb-3">Central Brain & Logic Unit</p>
+                    <p class="text-sm text-purple-200/90"><span class="font-semibold text-cyan-200">Role:</span> Executes core loop, data acquisition, calibration, display updates, **Wi-Fi data transmission**. Low-power sleep modes to conserve battery.</p>
+                </div>
+
+                <!-- Sensor Array -->
+                <div class="glass-card p-5 rounded-2xl scroll-animate" style="--delay: 0.2s;">
+                    <h4 class="text-xl font-bold text-cyan-300 mb-2">Sensor Array (TDS, pH, Turbidity)</h4>
+                    <p class="text-sm font-mono text-purple-400/80 mb-3">Water Quality Metrics</p>
+                    <p class="text-sm text-purple-200/90"><span class="font-semibold text-cyan-200">Role:</span> Measures water safety for ESP32 calculations. Spec: TDS (0–1000 ppm), pH (0–14), Turbidity (0–1000 NTU).</p>
+                </div>
+
+                <!-- Power System -->
+                <div class="glass-card p-5 rounded-2xl scroll-animate" style="--delay: 0.3s;">
+                    <h4 class="text-xl font-bold text-cyan-300 mb-2">Solar & Battery System</h4>
+                    <p class="text-sm font-mono text-purple-400/80 mb-3">Autonomous Energy Source</p>
+                    <p class="text-sm text-purple-200/90"><span class="font-semibold text-cyan-200">Role:</span> Solar charges Li-ion via TP4056, stable voltage via LM2596. Spec: 5V 2W Solar, 3.7V 2500mAh Li-ion.</p>
+                </div>
+
+                <!-- Storage & Display -->
+                <div class="glass-card p-5 rounded-2xl scroll-animate" style="--delay: 0.4s;">
+                    <h4 class="text-xl font-bold text-cyan-300 mb-2">MicroSD & Display Unit</h4>
+                    <p class="text-sm font-mono text-purple-400/80 mb-3">Local Feedback & Backup</p>
+                    <p class="text-sm text-purple-200/90"><span class="font-semibold text-cyan-200">Role:</span> Display shows real-time data, MicroSD provides local backup. Spec: 1.3" OLED/TFT display, MicroSD logging module.</p>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <!-- AI STATUS CONSOLE -->
@@ -178,15 +249,14 @@
             <span class="text-white/90">AquaSentry Core Online</span>
         </div>
         <div class="text-white/60 mt-1">
-            <p>COMMUNICATION: MicroSD Logging Only</p>
-            <p>DISPLAY: On-demand/manual or sampling</p>
+            <p>COMMUNICATION: Wi-Fi Only</p>
+            <p>PROTOCOL: Grounded</p>
         </div>
     </div>
 
-    <!-- Footer -->
     <footer class="text-purple-300/60 py-8 mt-24 border-t border-cyan-500/40">
         <div class="max-w-7xl mx-auto px-4 text-center text-sm">
-            AquaSentry Blueprint - MicroSD Logging & Manual Trigger Integration
+            AquaSentry Blueprint - AI-Enhanced Data Integration
         </div>
     </footer>
 
@@ -195,15 +265,13 @@
             const elements = document.querySelectorAll('.scroll-animate');
             const observer = new IntersectionObserver(entries => {
                 entries.forEach(entry => {
-                    if(entry.isIntersecting) {
-                        entry.target.classList.add('animate-in');
-                        observer.unobserve(entry.target);
-                    }
+                    if (entry.isIntersecting) entry.target.classList.add('animate-in');
+                    observer.unobserve(entry.target);
                 });
             }, { rootMargin: '0px', threshold: 0.1 });
             elements.forEach(el => observer.observe(el));
 
-            if(window.innerWidth >= 640) document.querySelector('.ai-console').classList.remove('hidden');
+            if (window.innerWidth >= 640) document.querySelector('.ai-console').classList.remove('hidden');
         });
     </script>
 </body>
