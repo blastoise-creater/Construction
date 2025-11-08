@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Nexus: AI-Enhanced Data Core</title>
+    <title>AquaSentry: Smart Water Sentinel</title>
     <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* Set default font to Inter */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Space+Mono:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Space+Mono:wght{400;700}&display=swap');
         
         /* NEW: Layered Animated Gradient "Cosmic Nexus" Background */
         @keyframes cosmic-flow {
@@ -104,42 +104,6 @@
             transform: translateY(0);
         }
 
-        /* Timeline Dots - Pulsing Cyber Glow */
-        @keyframes pulse-cyber {
-            0%, 100% {
-                box-shadow: 0 0 8px #a78bfa, 0 0 15px #a78bfa; 
-                background-color: #c084fc; 
-            }
-            50% {
-                box-shadow: 0 0 12px #22d3ee, 0 0 30px #22d3ee; /* Cyan flash */
-                background-color: #67e8f9; 
-            }
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0.5rem; 
-            width: 1.2rem; 
-            height: 1.2rem;
-            border-radius: 50%;
-            border: 4px solid #09001b; 
-            z-index: 10;
-            animation: pulse-cyber 3s infinite ease-in-out; 
-        }
-
-        .timeline-item:not(:last-child)::after {
-            content: '';
-            position: absolute;
-            left: 1.1rem; 
-            top: 1.7rem;
-            bottom: -0.5rem;
-            width: 3px; 
-            background-color: #8b5cf6; /* Deeper purple connector */
-            z-index: 5;
-        }
-
         /* AI Status Console Styling */
         .ai-console {
             position: fixed;
@@ -167,6 +131,8 @@
         .status-dot {
             animation: status-pulse 2s infinite;
         }
+        
+        /* Removing timeline specific styles as the section is removed */
     </style>
 </head>
 <body class="antialiased">
@@ -176,11 +142,11 @@
         <header>
             <!-- Holographic title -->
             <h1 class="holographic-title text-4xl sm:text-5xl lg:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-cyan-400 mb-4">
-                PROJECT NEXUS: Data Core
+                AquaSentry: Smart Water Sentinel
             </h1>
             <!-- Subtitle uses the cyan color -->
             <p class="text-lg sm:text-xl text-cyan-300 opacity-90 font-light max-w-3xl mx-auto">
-                AI-Enhanced Analysis of Physical Components, Engineering Protocols, and Deployment Strategy.
+                Integrated Solar-Powered Water Quality Monitoring and **Wi-Fi Cloud Reporting** System.
             </p>
         </header>
     </div>
@@ -196,51 +162,51 @@
 
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
 
-                <!-- Card 1: Sensors -->
+                <!-- Card 1: Aquatic Probes & Calibration Array -->
                 <div class="glass-card p-6 rounded-3xl scroll-animate" style="--delay: 0.1s;">
-                    <img src="https://placehold.co/400x200/a855f7/FFFFFF?text=SENSOR+MODULES" alt="Placeholder image of pH, TDS, and Turbidity probes" class="rounded-xl mb-4 w-full h-auto opacity-90" onerror="this.onerror=null;this.src='https://placehold.co/400x200/a855f7/FFFFFF?text=SENSOR+MODULES';">
-                    <h3 class="text-xl font-bold text-cyan-300 mb-2">Aquatic Probes</h3>
+                    <img src="https://placehold.co/400x200/a855f7/FFFFFF?text=AQUATIC+PROBES" alt="Placeholder image of pH, TDS, and Turbidity probes" class="rounded-xl mb-4 w-full h-auto opacity-90" onerror="this.onerror=null;this.src='https://placehold.co/400x200/a855f7/FFFFFF?text=AQUATIC+PROBES';">
+                    <h3 class="text-xl font-bold text-cyan-300 mb-2">Aquatic Probes & Calibration Array</h3>
                     <p class="text-sm text-purple-200/90 mb-2">
-                        <span class="font-semibold text-cyan-200">Data Acquisition:</span> pH, TDS (conductivity), Turbidity, and High-Precision Temperature (DS18B20). Calibrated for extreme environmental variance.
+                        <span class="font-semibold text-cyan-200">Data Acquisition:</span> **TDS (0–1000 ppm)**, **pH (0–14, $\pm 0.1$)**, **Turbidity (0–1000 NTU)**, and **DS18B20 Temperature** sensor. Fixed inside a waterproof sensor node.
                     </p>
                     <p class="text-xs italic text-purple-400/70">
-                        Input Nodes for real-time volumetric analysis.
+                        Multi-parameter input for high-fidelity water analysis.
                     </p>
                 </div>
 
-                <!-- Card 2: Controller & UI -->
+                <!-- Card 2: Control Unit & Local Display -->
                 <div class="glass-card p-6 rounded-3xl scroll-animate" style="--delay: 0.2s;">
-                    <img src="https://placehold.co/400x200/c084fc/FFFFFF?text=ESP32+%2B+INTERFACE" alt="Placeholder image of Arduino Nano and OLED display" class="rounded-xl mb-4 w-full h-auto opacity-90" onerror="this.onerror=null;this.src='https://placehold.co/400x200/c084fc/FFFFFF?text=ESP32+%2B+INTERFACE';">
-                    <h3 class="text-xl font-bold text-cyan-300 mb-2">Nexus Controller</h3>
+                    <img src="https://placehold.co/400x200/c084fc/FFFFFF?text=ESP32+CONTROL" alt="Placeholder image of ESP32 and OLED display" class="rounded-xl mb-4 w-full h-auto opacity-90" onerror="this.onerror=null;this.src='https://placehold.co/400x200/c084fc/FFFFFF?text=ESP32+CONTROL';">
+                    <h3 class="text-xl font-bold text-cyan-300 mb-2">Control Unit & Local Display</h3>
                     <p class="text-sm text-purple-200/90 mb-2">
-                        <span class="font-semibold text-cyan-200">Processing Core:</span> ESP32-based logic unit. Features a 1.3″ OLED display for local verdict and tactical 4-button array for data navigation.
+                        <span class="font-semibold text-cyan-200">Processing Core:</span> **ESP32 Microcontroller** (Dual-core, low power sleep). Features a **1.3″ OLED Display** for color-coded status (Safe, Moderate, Unsafe).
                     </p>
                     <p class="text-xs italic text-purple-400/70">
-                        Executes real-time algorithms and drives the physical interface.
+                        Central logic processing and user feedback interface.
                     </p>
                 </div>
 
-                <!-- Card 3: Power System -->
+                <!-- Card 3: Dedicated Wi-Fi Connectivity (UPDATED: GSM REMOVED) -->
                 <div class="glass-card p-6 rounded-3xl scroll-animate" style="--delay: 0.3s;">
-                    <img src="https://placehold.co/400x200/d8b4fe/FFFFFF?text=POWER+REPLICATOR" alt="Placeholder image of 18650 battery and solar panel" class="rounded-xl mb-4 w-full h-auto opacity-90" onerror="this.onerror=null;this.src='https://placehold.co/400x200/d8b4fe/FFFFFF?text=POWER+REPLICATOR';">
-                    <h3 class="text-xl font-bold text-cyan-300 mb-2">Autonomous Energy</h3>
+                    <img src="https://placehold.co/400x200/d8b4fe/FFFFFF?text=WIFI+MODULE" alt="Placeholder image representing Wi-Fi connectivity" class="rounded-xl mb-4 w-full h-auto opacity-90" onerror="this.onerror=null;this.src='https://placehold.co/400x200/d8b4fe/FFFFFF?text=WIFI+MODULE';">
+                    <h3 class="text-xl font-bold text-cyan-300 mb-2">Dedicated Wi-Fi Connectivity</h3>
                     <p class="text-sm text-purple-200/90 mb-2">
-                        <span class="font-semibold text-cyan-200">Sustainability:</span> 18650 Li-ion storage with TP4056 charge control. MT3608 boost regulator for stable 5V delivery. Optional photovoltaic recharge node.
+                        <span class="font-semibold text-cyan-200">Connectivity:</span> Utilizes the **ESP32's built-in Wi-Fi** capabilities for data transmission to the cloud server, enabling seamless remote monitoring within range of a local network.
                     </p>
                     <p class="text-xs italic text-purple-400/70">
-                        Minimum 72-hour operational reserve capacity.
+                        Ensures uninterrupted cloud logging via local network access.
                     </p>
                 </div>
 
-                <!-- Card 4: Storage & Casing -->
+                <!-- Card 4: Autonomous Power & Data Log -->
                 <div class="glass-card p-6 rounded-3xl scroll-animate" style="--delay: 0.4s;">
-                    <img src="https://placehold.co/400x200/e9d5ff/FFFFFF?text=STORAGE+ENCLOSURE" alt="Placeholder image of a sealed plastic box and microSD card" class="rounded-xl mb-4 w-full h-auto opacity-90" onerror="this.onerror=null;this.src='https://placehold.co/400x200/e9d5ff/FFFFFF?text=STORAGE+ENCLOSURE';">
-                    <h3 class="text-xl font-bold text-cyan-300 mb-2">Data Logging & Shield</h3>
+                    <img src="https://placehold.co/400x200/e9d5ff/FFFFFF?text=SOLAR+POWER+SD" alt="Placeholder image of solar panel and microSD card" class="rounded-xl mb-4 w-full h-auto opacity-90" onerror="this.onerror=null;this.src='https://placehold.co/400x200/e9d5ff/FFFFFF?text=SOLAR+POWER+SD';">
+                    <h3 class="text-xl font-bold text-cyan-300 mb-2">Autonomous Power & Data Log</h3>
                     <p class="text-sm text-purple-200/90 mb-2">
-                        <span class="font-semibold text-cyan-200">Protection & Logs:</span> IP-rated poly-casing with silicone seals. Integrated microSD for secure, non-volatile CSV log storage.
+                        <span class="font-semibold text-cyan-200">Sustainability:</span> **5V, 2W Solar Panel** and **3.7V, 2500mAh Li-ion Battery**. Managed by **TP4056** and **Voltage Regulator (LM2596)**. Local backup via **MicroSD Card**.
                     </p>
                     <p class="text-xs italic text-purple-400/70">
-                        Environmental integrity maintained for sensor cluster and electronics.
+                        Sustainable field operation with non-volatile local storage.
                     </p>
                 </div>
 
@@ -261,19 +227,19 @@
                         Fluid Dynamic Interface
                     </h3>
                     <p class="text-lg text-purple-200/90 mb-6">
-                        Installation requires zero permanent modification to existing infrastructure. A secure <strong class="text-cyan-200 font-semibold">T-joint adaptor</strong> ensures the device taps directly into the flow. The <strong class="text-cyan-200 font-semibold">PVC flow tube</strong> is essential for maintaining constant probe immersion and laminar flow during sampling windows.
+                        The sensor node is attached directly <strong class="text-cyan-200 font-semibold">below the tap or handpump</strong>. A secure mounting system ensures the probes remain immersed during sampling. The main control box, sealed with an **IP-rated poly-casing**, is fixed nearby.
                     </p>
                     
                     <ul class="space-y-4 text-base text-purple-200/90">
                         <!-- Cyan icons and bold text -->
                         <li class="flex items-center"><svg class="w-5 h-5 text-cyan-400 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 0a9 9 0 01-9-9m9 9a9 9 0 00-9 9"></path></svg>
-                            <span class="font-semibold text-cyan-100 mr-2">Deployment Vector:</span> System is mounted laterally to the pump structure. Display orientation must be optimized for user accessibility.
+                            <span class="font-semibold text-cyan-100 mr-2">Deployment Vector:</span> Control box is mounted laterally to the pump structure. Display orientation must be optimized for community accessibility and viewing distance.
                         </li>
                         <li class="flex items-center"><svg class="w-5 h-5 text-cyan-400 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v-1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
-                            <span class="font-semibold text-cyan-100 mr-2">Energy Harvester:</span> Solar panel alignment requires maximum daily irradiance, typically perpendicular to the structure's highest point.
+                            <span class="font-semibold text-cyan-100 mr-2">Energy Harvester:</span> **5V Solar panel** alignment requires maximum daily irradiance, typically mounted at a **45° angle** above the control box.
                         </li>
                         <li class="flex items-center"><svg class="w-5 h-5 text-cyan-400 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37a1.724 1.724 0 002.572-1.065z"></path></svg>
-                            <span class="font-semibold text-cyan-100 mr-2">Maintenance Protocol:</span> The probe module is detachable for scheduled calibration/cleaning cycle, ensuring long-term data fidelity.
+                            <span class="font-semibold text-cyan-100 mr-2">Maintenance Protocol:</span> The waterproof **probe module is detachable** for scheduled cleaning/calibration cycles, ensuring long-term data fidelity.
                         </li>
                     </ul>
                 </div>
@@ -288,69 +254,56 @@
             </div>
         </section>
 
-        <!-- Section 3: Prototype Build Plan (Timeline) -->
-        <section id="build_plan" class="mb-20">
+        <!-- Section 3: Component Breakdown & Role Analysis (UPDATED: GSM CARD REMOVED) -->
+        <section id="components_bom" class="mb-24">
             <!-- Section Header - uses cyan accent -->
-            <h2 class="text-3xl sm:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-cyan-400 mb-10 border-b border-cyan-500/40 pb-4 scroll-animate" style="--delay: 0s;">
-                3. Deployment Timeline (Project Phases)
+            <h2 class="text-3xl sm:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-cyan-400 mb-12 border-b border-cyan-500/40 pb-4 scroll-animate" style="--delay: 0s;">
+                3. Component Breakdown & Role Analysis (BOM)
             </h2>
 
-            <div class="relative pl-6 md:pl-12">
+            <!-- Component Grid - Using grid-cols-2 now that only 4 components remain, better for mobile layout -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-6 max-w-4xl mx-auto">
                 
-                <!-- Timeline Item 1 -->
-                <div class="timeline-item relative mb-8 pl-10 scroll-animate" style="--delay: 0.1s;">
-                    <div class="glass-card p-5 rounded-2xl border-l-4 border-cyan-500 transition-colors duration-300 hover:border-l-cyan-300">
-                        <h4 class="text-xl font-bold text-cyan-300">Phase I: Sensor Verification (T-0 to T+2 Weeks)</h4>
-                        <p class="text-sm text-purple-200/90 mt-1">
-                            <span class="font-semibold text-cyan-200">Objective:</span> Component procurement and isolated **benchmarking** against laboratory standards. Establish baseline accuracy for all sensors.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Timeline Item 2 -->
-                <div class="timeline-item relative mb-8 pl-10 scroll-animate" style="--delay: 0.2s;">
-                    <div class="glass-card p-5 rounded-2xl border-l-4 border-cyan-500 transition-colors duration-300 hover:border-l-cyan-300">
-                        <h4 class="text-xl font-bold text-cyan-300">Phase II: Logic Integration (T+2 to T+4 Weeks)</h4>
-                        <p class="text-sm text-purple-200/90 mt-1">
-                            <span class="font-semibold text-cyan-200">Objective:</span> Finalize **PCB architecture**. Implement core decision-making algorithms and test the data logging module stability under simulated load.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Timeline Item 3 -->
-                <div class="timeline-item relative mb-8 pl-10 scroll-animate" style="--delay: 0.3s;">
-                    <div class="glass-card p-5 rounded-2xl border-l-4 border-cyan-500 transition-colors duration-300 hover:border-l-cyan-300">
-                        <h4 class="text-xl font-bold text-cyan-300">Phase III: Physical Casing & Mock-Up (T+4 to T+5 Weeks)</h4>
-                        <p class="text-sm text-purple-200/90 mt-1">
-                            <span class="font-semibold text-cyan-200">Objective:</span> Complete the final ruggedized enclosure. Ensure all cable entry points are sealed and the probe sleeve assembly is secure and user-friendly.
-                        </p>
-                    </div>
+                <!-- Component Card 1: ESP32 (Original index 1) -->
+                <div class="glass-card p-5 rounded-2xl scroll-animate" style="--delay: 0.1s;">
+                    <h4 class="text-xl font-bold text-cyan-300 mb-2">ESP32 Microcontroller</h4>
+                    <p class="text-sm font-mono text-purple-400/80 mb-3">Central Brain & Logic Unit</p>
+                    <p class="text-sm text-purple-200/90">
+                        <span class="font-semibold text-cyan-200">Role:</span> Executes the core loop: data acquisition, calibration, display updates, and **Wi-Fi data transmission**. Utilizes low-power sleep modes to conserve battery.
+                        <br><span class="text-xs text-purple-400/70 block mt-1">Spec: Dual-core MCU, integrated Wi-Fi/Bluetooth.</span>
+                    </p>
                 </div>
                 
-                <!-- Timeline Item 4 -->
-                <div class="timeline-item relative mb-8 pl-10 scroll-animate" style="--delay: 0.4s;">
-                    <div class="glass-card p-5 rounded-2xl border-l-4 border-cyan-500 transition-colors duration-300 hover:border-l-cyan-300">
-                        <h4 class="text-xl font-bold text-cyan-300">Phase IV: Field Calibration (T+5 to T+11 Weeks)</h4>
-                        <p class="text-sm text-purple-200/90 mt-1">
-                            <span class="font-semibold text-cyan-200">Objective:</span> Deploy to two test sites. Collect parallel data against certified **external lab analysis**. Fine-tune algorithm sensitivity for local water dynamics.
-                        </p>
-                    </div>
+                <!-- Component Card 2: Sensor Array (Original index 3) -->
+                <div class="glass-card p-5 rounded-2xl scroll-animate" style="--delay: 0.2s;">
+                    <h4 class="text-xl font-bold text-cyan-300 mb-2">Sensor Array (TDS, pH, Turbidity)</h4>
+                    <p class="text-sm font-mono text-purple-400/80 mb-3">Water Quality Metrics</p>
+                    <p class="text-sm text-purple-200/90">
+                        <span class="font-semibold text-cyan-200">Role:</span> Core instruments for measuring water safety. They provide the raw data required by the ESP32 to calculate the final safe/unsafe verdict.
+                        <br><span class="text-xs text-purple-400/70 block mt-1">Spec: TDS ($0 - 1000 \text{ ppm}$), pH ($0 - 14$), Turbidity ($0 - 1000 \text{ NTU}$).</span>
+                    </p>
                 </div>
 
-                <!-- Timeline Item 5 -->
-                <div class="timeline-item relative mb-8 pl-10 scroll-animate" style="--delay: 0.5s;">
-                    <div class="glass-card p-5 rounded-2xl border-l-4 border-cyan-500 transition-colors duration-300 hover:border-l-cyan-300">
-                        <h4 class="text-xl font-bold text-cyan-300">Phase V: SOP Finalization (T+11 to T+13 Weeks)</h4>
-                        <p class="text-sm text-purple-200/90 mt-1">
-                            <span class="font-semibold text-cyan-200">Objective:</span> Document final assembly protocols (SOPs), user training materials, and maintenance guides. **Ready for wider scaling**.
-                        </p>
-                    </div>
+                <!-- Component Card 3: Power System (Original index 4) -->
+                <div class="glass-card p-5 rounded-2xl scroll-animate" style="--delay: 0.3s;">
+                    <h4 class="text-xl font-bold text-cyan-300 mb-2">Solar & Battery System</h4>
+                    <p class="text-sm font-mono text-purple-400/80 mb-3">Autonomous Energy Source</p>
+                    <p class="text-sm text-purple-200/90">
+                        <span class="font-semibold text-cyan-200">Role:</span> Provides reliable power without external electricity. The solar panel charges the Li-ion battery via the TP4056 charge controller, supplying stable voltage via the LM2596 regulator.
+                        <br><span class="text-xs text-purple-400/70 block mt-1">Spec: $5 \text{V}, 2 \text{W}$ Solar, $3.7 \text{V}, 2500 \text{mAh}$ Li-ion.</span>
+                    </p>
                 </div>
 
-                <!-- GOAL text -->
-                <div class="text-center pt-8 text-cyan-300 font-bold text-lg tracking-widest scroll-animate" style="--delay: 0.6s;">
-                    DEPLOYMENT TARGET: T+12 WEEKS. STATUS: ALGORITHM OPTIMIZATION COMPLETE.
+                <!-- Component Card 4: Storage & Display (Original index 5) -->
+                <div class="glass-card p-5 rounded-2xl scroll-animate" style="--delay: 0.4s;">
+                    <h4 class="text-xl font-bold text-cyan-300 mb-2">MicroSD & Display Unit</h4>
+                    <p class="text-sm font-mono text-purple-400/80 mb-3">Local Feedback & Backup</p>
+                    <p class="text-sm text-purple-200/90">
+                        <span class="font-semibold text-cyan-200">Role:</span> The display shows real-time data and the color-coded status for immediate community access. The MicroSD provides non-volatile local backup for all historical readings.
+                        <br><span class="text-xs text-purple-400/70 block mt-1">Spec: $1.3''$ OLED/TFT display. MicroSD logging module.</span>
+                    </p>
                 </div>
+
             </div>
         </section>
 
@@ -361,11 +314,11 @@
         <div class="flex items-center space-x-2">
             <span class="status-dot inline-block w-3 h-3 bg-cyan-400 rounded-full"></span>
             <span class="text-cyan-400">AI STATUS:</span>
-            <span class="text-white/90">Nexus Core Online</span>
+            <span class="text-white/90">AquaSentry Core Online</span>
         </div>
         <div class="text-white/60 mt-1">
-            <p>STREAM: Active (30s latency)</p>
-            <p>PROTOCOL: Verified</p>
+            <p>COMMUNICATION: Wi-Fi Only</p>
+            <p>PROTOCOL: Grounded</p>
         </div>
     </div>
 
@@ -373,7 +326,7 @@
     <!-- Subtle glass footer -->
     <footer class="text-purple-300/60 py-8 mt-24 border-t border-cyan-500/40">
         <div class="max-w-7xl mx-auto px-4 text-center text-sm">
-            Project Nexus Data Core - AI-Enhanced Blueprint
+            AquaSentry Blueprint - AI-Enhanced Data Integration
         </div>
     </footer>
 
